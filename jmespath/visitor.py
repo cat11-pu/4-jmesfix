@@ -218,7 +218,8 @@ class TreeInterpreter(Visitor):
     def visit_slice(self, node, value):
         if not isinstance(value, list):
             return None
-        s = slice(node['children'][0], node['children'][1])
+        s = slice(node['children'][0], node['children'][1],
+                  node['children'][2])
         return value[s]
 
     def visit_key_val_pair(self, node, value):
